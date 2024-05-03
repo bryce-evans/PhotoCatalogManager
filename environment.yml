@@ -3,9 +3,9 @@
 # This is not reproducible across CI test runs and various machines.
 name: dev-env
 channels:
-  - pytorch
-  - conda-forge
   - defaults
+  - conda-forge
+  - pytorch
 dependencies:
   - python=3.11
   - faiss-cpu

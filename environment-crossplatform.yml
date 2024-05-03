@@ -3,9 +3,9 @@
 # Versions are slightly dated.
 name: ci-crossplatform-env
 channels:
-  - pytorch
-  - conda-forge
   - defaults
+  - conda-forge
+  - pytorch
 dependencies:
   - python=3.11
   - faiss-cpu==1.7.4

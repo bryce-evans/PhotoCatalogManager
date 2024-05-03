@@ -2,9 +2,9 @@
 # Tested on Ubuntu and MacOS[Arm]
 name: latest-env
 channels:
-  - pytorch
-  - conda-forge
   - defaults
+  - conda-forge
+  - pytorch
 dependencies:
   - python=3.11
   - faiss-cpu==1.8.0 
