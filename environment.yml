@@ -1,0 +1,20 @@
+# Unpinned versions for best support in building a whl for local architecture.
+# Includes pip dep build for building wheels.
+# This is not reproducible across CI test runs and various machines.
+name: dev-env
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - faiss-cpu
+  - numpy
+  - pillow
+  - pytest
+  - pytest-mock
+  - pytorch
+  - torchvision
+  - transformers
+  - pip:
+    - build

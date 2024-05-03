@@ -1,0 +1,40 @@
+name: Python Application Testing
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ['3.9', '3.10', '3.11']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Environment Setup
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          environment-file: environment-crossplatform.yml
+          activate-environment: ci-crossplatform-env
+          python-version: 3.11
+          miniconda-version: "latest"
+          auto-activate-base: false
+
+      - name: Install dependencies
+        shell: bash -l {0}
+        run: conda env update --file environment-crossplatform.yml --name ci-crossplatform-env
+
+      - name: Run Tests
+        shell: bash -l {0}
+        run: |
+          conda info
+          conda list
+          pytest test
+
